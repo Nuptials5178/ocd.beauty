@@ -1,0 +1,12 @@
+# SPDX-FileCopyrightText: 2026 Nuptials5178 <nuptials5178@ocd.beauty>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+attachment-cache-dir: '/var/cache/ntfy/attachments'
+auth-default-access: 'deny-all'
+auth-file: '/var/lib/ntfy/auth.db'
+base-url: 'https://ntfy.ocd.beauty'
+behind-proxy: true
+cache-file: '/var/cache/ntfy/cache.db'
+enable-login: true
+require-login: true
+upstream-base-url: 'https://ntfy.sh'

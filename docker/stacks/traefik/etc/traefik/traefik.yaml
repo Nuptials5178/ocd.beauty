@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2026 Nuptials5178 <nuptials5178@ocd.beauty>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+log:
+  level: 'INFO'
+
+certificatesResolvers:
+  letsEncrypt:
+    acme:
+      email: 'nuptials5178@ocd.beauty'
+      storage: '/lets-encrypt/acme.json'
+      tlsChallenge: true
+
+entryPoints:
+  web:
+    address: ':80'
+    http:
+      tls:
+        certResolver: letsEncrypt
+      redirections:
+        to: webSecure
+        scheme: 'https'
+
+  webSecure:
+    address: ':443'
+
+providers:
+  docker:
+    exposedByDefault: false
+    network: proxy

@@ -1,0 +1,28 @@
+# SPDX-FileCopyrightText: 2026 Nuptials5178 <nuptials5178@ocd.beauty>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+services:
+  ntfy:
+    image: 'binwiederhier/ntfy:v2.28.0'
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - 'var-cache-ntfy:/var/cache/ntfy'
+      - 'var-lib-ntfy:/var/lib/ntfy'
+      - './etc/ntfy/server.yaml:/etc/ntfy/server.yaml'
+    command:
+      - 'serve'
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.ntfy.entryPoints=webSecure'
+      - 'traefik.http.routers.ntfy.rule=Host(`ntfy.ocd.beauty`)'
+      - 'traefik.http.services.ntfy.loadBalancer.server.port=8000'
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  var-cache-ntfy:
+  var-lib-ntfy:

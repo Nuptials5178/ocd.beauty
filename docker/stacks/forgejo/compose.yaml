@@ -1,0 +1,31 @@
+# SPDX-FileCopyrightText: 2026 Nuptials5178 <nuptials5178@ocd.beauty>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+services:
+  forgejo:
+    image: 'codeberg.org/forgejo/forgejo:16.0.3'
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - 'data:/data'
+      - '/etc/localtime:/etc/localtime'
+      - './data/gitea/public/assets/css/custom.css:/data/gitea/public/assets/css/custom.css'
+      - './data/gitea/templates/custom/header.tmpl:/data/gitea/templates/custom/header.tmpl'
+    environment:
+      - 'FORGEJO__server__LANDING_PAGE=explore'
+      - 'FORGEJO__service__DISABLE_REGISTRATION=true'
+      - 'USER_UID=1000'
+      - 'USER_GID=1000'
+    labels:
+      - 'traefik.enable=true'
+      - 'traefik.http.routers.git.entryPoints=webSecure'
+      - 'traefik.http.routers.git.rule=Host(`git.ocd.beauty`)'
+      - 'traefik.http.services.git.loadBalancer.server.port=3000'
+
+networks:
+  proxy:
+    external: true
+ 
+volumes:
+  data:

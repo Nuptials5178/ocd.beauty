@@ -1,0 +1,23 @@
+# SPDX-FileCopyrightText: 2026 Nuptials5178 <nuptials5178@ocd.beauty>
+#
+# SPDX-License-Identifier: AGPL-3.0-or-later
+services:
+  traefik:
+    image: 'traefik:v3.7.12'
+    restart: unless-stopped
+    networks:
+      - proxy
+    volumes:
+      - 'lets-encrypt:/lets-encrypt'
+      - '/var/run/docker.sock:/var/run/docker.sock'
+      - './etc/traefik/traefik.yaml:/etc/traefik/traefik.yaml'
+    ports:
+      - '80:80'
+      - '443:443'
+
+networks:
+  proxy:
+    external: true
+
+volumes:
+  lets-encrypt:
