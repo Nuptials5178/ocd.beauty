@@ -8,7 +8,7 @@ certificatesResolvers:
   letsEncrypt:
     acme:
       email: 'nuptials5178@ocd.beauty'
-      storage: '/lets-encrypt/acme.json'
+      storage: '/lets_encrypt/acme.json'
       tlsChallenge: true
 
 entryPoints:

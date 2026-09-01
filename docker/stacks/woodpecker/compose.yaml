@@ -9,7 +9,7 @@ services:
       - default
       - proxy
     volumes:
-      - 'var-lib-woodpecker:/var/lib/woodpecker'
+      - 'var_lib_woodpecker:/var/lib/woodpecker'
       - './usr/local/www/woodpecker.css:/usr/local/www/woodpecker.css:ro'
     environment:
       - 'WOODPECKER_ADMIN=${WOODPECKER_ADMIN}'
@@ -36,7 +36,7 @@ services:
     networks:
       - default
     volumes:
-      - 'etc-woodpecker:/etc/woodpecker'
+      - 'etc_woodpecker:/etc/woodpecker'
       - '/var/run/docker.sock:/var/run/docker.sock'
     command: 
       - 'agent'
@@ -53,5 +53,5 @@ networks:
     external: true
 
 volumes:
-  etc-woodpecker:
-  var-lib-woodpecker:
+  etc_woodpecker:
+  var_lib_woodpecker:

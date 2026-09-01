@@ -8,7 +8,7 @@ services:
     networks:
       - proxy
     volumes:
-      - 'lets-encrypt:/lets-encrypt'
+      - 'lets_encrypt:/lets_encrypt'
       - '/var/run/docker.sock:/var/run/docker.sock'
       - './etc/traefik/traefik.yaml:/etc/traefik/traefik.yaml'
     ports:
@@ -20,4 +20,4 @@ networks:
     external: true
 
 volumes:
-  lets-encrypt:
+  lets_encrypt:
