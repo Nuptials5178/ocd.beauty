@@ -15,14 +15,16 @@ entryPoints:
   web:
     address: ':80'
     http:
-      tls:
-        certResolver: letsEncrypt
       redirections:
-        to: webSecure
-        scheme: 'https'
+        entryPoint:
+          to: webSecure
+          scheme: 'https'
 
   webSecure:
     address: ':443'
+    http:
+      tls:
+        certResolver: letsEncrypt
 
 providers:
   docker:
