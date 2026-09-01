@@ -4,8 +4,8 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 set -euo pipefail
 
-scripts/start.sh
 scripts/stop.sh
+scripts/start.sh
 
 clear
 echo "🔄 Restarted!"

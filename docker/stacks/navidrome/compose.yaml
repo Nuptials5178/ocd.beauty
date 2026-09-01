@@ -9,7 +9,7 @@ services:
       - proxy
     volumes:
       - 'data:/data'
-      - 'music:/music'
+      - 'srv/navidrome/music:/music'
       - './data/navidrome.toml:/data/navidrome.toml'
     labels:
       - 'traefik.enable=true'
@@ -23,4 +23,3 @@ networks:
 
 volumes:
   data:
-  music:
