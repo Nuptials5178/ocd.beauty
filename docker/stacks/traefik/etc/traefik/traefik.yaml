@@ -22,6 +22,7 @@ entryPoints:
 
   webSecure:
     address: ':443'
+    aliasHeadersStrategy: 'delete'
     http:
       tls:
         certResolver: letsEncrypt
