@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     volumes:
       - 'beszel-data:/beszel_data'
-      - 'beszel-socket:/beszel_socket'
+      - 'beszel-socket:/beszel-socket'
     ports:
       - '127.0.0.1:8090:8090'
     environment:
@@ -17,18 +17,18 @@ services:
     image: 'henrygd/beszel-agent:0.18.8'
     restart: unless-stopped
     volumes:
-      - 'beszel-socket:/beszel_socket'
+      - 'beszel-socket:/beszel-socket'
       - 'var-lib-beszel-agent:/var/lib/beszel-agent'
       - '/var/run/docker.sock:/var/run/docker.sock'
     environment:
       - 'HUB_URL=http://beszel:8090'
       - 'KEY=${KEY}'
-      - 'LISTEN=/beszel_socket/beszel.sock'
+      - 'LISTEN=/beszel-socket/beszel.sock'
       - 'TOKEN=${TOKEN}'
     depends_on:
       - beszel
 
 volumes:
-  beszel-agent-data:
+  beszel-data:
   beszel-socket:
   var-lib-beszel-agent:
