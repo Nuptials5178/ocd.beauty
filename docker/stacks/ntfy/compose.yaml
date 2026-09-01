@@ -10,7 +10,7 @@ services:
     volumes:
       - 'var_cache_ntfy:/var/cache/ntfy'
       - 'var_lib_ntfy:/var/lib/ntfy'
-      - './etc/ntfy/server.yaml:/etc/ntfy/server.yaml'
+      - './etc/ntfy/server.yaml:/etc/ntfy/server.yml'
     command:
       - 'serve'
     labels:
