@@ -2,27 +2,27 @@
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
 log:
-  level: 'INFO'
+  level: "INFO"
 
 certificatesResolvers:
   letsEncrypt:
     acme:
-      email: 'nuptials5178@ocd.beauty'
-      storage: '/lets_encrypt/acme.json'
+      email: "nuptials5178@ocd.beauty"
+      storage: "/lets_encrypt/acme.json"
       tlsChallenge: true
 
 entryPoints:
   web:
-    address: ':80'
+    address: ":80"
     http:
       redirections:
         entryPoint:
           to: webSecure
-          scheme: 'https'
+          scheme: "https"
 
   webSecure:
-    address: ':443'
-    aliasHeadersStrategy: 'delete'
+    address: ":443"
+    aliasHeadersStrategy: "delete"
     http:
       tls:
         certResolver: letsEncrypt

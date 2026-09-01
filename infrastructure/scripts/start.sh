@@ -6,7 +6,7 @@ set -euo pipefail
 
 for stack in "docker/stacks"/*
 do
-  infisical run --env=prod -- docker compose -f "$stack/compose.yaml" up -d
+  infisical run -- docker compose -f "$stack/compose.yaml" up -d
 done
 
 sudo tailscale serve --bg --https=8090 http://localhost:8090 # Beszel
