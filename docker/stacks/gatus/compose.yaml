@@ -10,8 +10,6 @@ services:
     volumes:
       - 'data:/data'
       - './config/config.yaml:/config/config.yaml'
-    environment:
-      - 'NTFY_TOKEN=${NTFY_TOKEN}'
     labels:
       - 'traefik.enable=true'
       - 'traefik.http.routers.status.entryPoints=webSecure'
