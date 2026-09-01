@@ -1,6 +1,12 @@
 # SPDX-FileCopyrightText: 2026 Nuptials5178 <nuptials5178@ocd.beauty>
 #
 # SPDX-License-Identifier: AGPL-3.0-or-later
+alerting:
+  ntfy:
+    topic: "gatus"
+    token: ${NTFY_TOKEN}
+    url: "https://ntfy.ocd.beauty"
+
 endpoints:
   - name: Forgejo
     url: https://git.ocd.beauty
