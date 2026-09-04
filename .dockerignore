@@ -1,0 +1,11 @@
+.astro
+.vscode
+dist
+infrastructure
+.dockerignore
+.gitattributes
+.gitignore
+biome.json
+lefthook.yaml
+renovate.json
+tsconfig.json

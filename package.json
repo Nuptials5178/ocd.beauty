@@ -2,7 +2,6 @@
   "name": "ocd.beauty",
   "private": true,
   "type": "module",
-  "module": "sources/index.ts",
   "scripts": {
     "build": "astro build",
     "check": "ultracite check",
@@ -19,7 +18,6 @@
   "devDependencies": {
     "@biomejs/biome": "2.5.9",
     "@types/bun": "latest",
-    "daisyui": "^5.7.28",
     "lefthook": "^2.1.12",
     "ultracite": "7.10.7"
   },
