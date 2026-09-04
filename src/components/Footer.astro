@@ -1,0 +1,26 @@
+---
+import { execSync } from "node:child_process";
+
+let commitHash =
+  process.env.CI_COMMIT_SHA?.slice(0, 7) ||
+  process.env.GITHUB_SHA?.slice(0, 7) ||
+  process.env.CF_PAGES_COMMIT_SHA?.slice(0, 7) ||
+  process.env.VERCEL_GIT_COMMIT_SHA?.slice(0, 7);
+
+if (!commitHash) {
+  try {
+    commitHash = execSync("git rev-parse --short HEAD").toString().trim();
+  } catch {
+    commitHash = "dev";
+  }
+}
+---
+
+<footer class="text-center pt-2 pb-8">
+  <span
+    class="text-base sm:text-lg text-zinc-500 hover:text-zinc-300 transition-colors duration-150 tracking-wi
+  der"
+  >
+    commit: #[{commitHash}]
+  </span>
+</footer>
