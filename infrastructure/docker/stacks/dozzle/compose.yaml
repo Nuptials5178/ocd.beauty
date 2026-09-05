@@ -1,5 +1,6 @@
 services:
   dozzle:
+    container_name: "dozzle"
     image: "amir20/dozzle:v10.7.5"
     restart: unless-stopped
     volumes:

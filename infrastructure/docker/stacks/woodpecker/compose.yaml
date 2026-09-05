@@ -1,5 +1,6 @@
 services:
   woodpecker-server:
+    container_name: "woodpecker-server"
     image: "woodpeckerci/woodpecker-server:v3.18.0"
     restart: unless-stopped
     networks:
@@ -28,6 +29,7 @@ services:
       - "traefik.http.services.ci.loadBalancer.server.port=8000"
 
   woodpecker-agent:
+    container_name: "woodpecker-agent"
     image: "woodpeckerci/woodpecker-agent:v3.18.0"
     restart: unless-stopped
     networks:

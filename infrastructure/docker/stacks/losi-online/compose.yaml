@@ -1,5 +1,6 @@
 services:
   losi-online:
+    container_name: "losi-online"
     build:
       context: "../../../.."
       dockerfile: "Dockerfile"

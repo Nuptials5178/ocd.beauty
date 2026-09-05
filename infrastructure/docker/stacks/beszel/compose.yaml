@@ -1,5 +1,6 @@
 services:
   beszel:
+    container_name: "beszel"
     image: "henrygd/beszel:0.18.8"
     restart: unless-stopped
     volumes:
@@ -11,6 +12,7 @@ services:
       - "APP_URL=http://localhost:8090"
 
   beszel-agent:
+    container_name: "beszel-agent"
     image: "henrygd/beszel-agent:0.18.8"
     restart: unless-stopped
     volumes:
