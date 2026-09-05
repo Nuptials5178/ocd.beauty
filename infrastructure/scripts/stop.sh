@@ -1,8 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
-for service in "services"/*; do
-    docker compose -f "$service/compose.yaml" down
+for stack in "docker/stacks"/*; do
+    docker compose -f "$stack/compose.yaml" down
 done
 
 sudo tailscale serve reset

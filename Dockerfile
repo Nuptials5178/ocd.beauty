@@ -1,11 +1,20 @@
-FROM node:lts AS build
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
-RUN npm run build
+FROM oven/bun:1-alpine AS base
 
-FROM nginx:alpine AS runtime
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /app/dist /usr/share/nginx/html
-EXPOSE 8080
+WORKDIR /losi-online
+
+COPY package.json ./
+COPY bun.lock ./
+
+RUN bun install --frozen-lockfile
+
+COPY . .
+
+RUN bun run build
+
+FROM nginx:alpine AS final
+
+COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=base /losi-online/dist /usr/share/nginx/html
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]

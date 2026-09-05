@@ -1,5 +1,4 @@
 ---
-import Footer from "@components/footer.astro";
 import Head from "@components/head.astro";
 import "../styles/global.css";
 
@@ -15,11 +14,7 @@ const { title } = Astro.props;
   <head>
     <Head title={title} />
   </head>
-  <body
-    class="bg-[#000000] text-[#d4d4d8] select-none"
-    style="font-family: 'Barrio', cursive, sans-serif;"
-  >
+  <body class="bg-[#000000] text-[#d4d4d8] select-none font-barriecito">
     <slot />
-    <Footer />
   </body>
 </html>

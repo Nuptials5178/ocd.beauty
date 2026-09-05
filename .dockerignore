@@ -1,4 +1,5 @@
 .astro
+.git
 .vscode
 dist
 infrastructure
@@ -6,6 +7,7 @@ infrastructure
 .gitattributes
 .gitignore
 biome.json
+Dockerfile
 lefthook.yaml
 renovate.json
 tsconfig.json

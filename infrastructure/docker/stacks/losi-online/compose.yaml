@@ -1,0 +1,17 @@
+services:
+  losi-online:
+    build:
+      context: "../../../.."
+      dockerfile: "Dockerfile"
+    restart: unless-stopped
+    networks:
+      - proxy
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.losi-online.entryPoints=webSecure"
+      - "traefik.http.routers.losi-online.rule=Host(`ocd.beauty`)"
+      - "traefik.http.services.losi-online.loadBalancer.server.port=80"
+
+networks:
+  proxy:
+    name: proxy
