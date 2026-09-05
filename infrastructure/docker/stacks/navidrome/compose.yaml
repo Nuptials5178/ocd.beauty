@@ -8,6 +8,9 @@ services:
       - "data:/data"
       - "/srv/navidrome/music:/music"
       - "./data/navidrome.toml:/data/navidrome.toml"
+    environment:
+      - "ND_LASTFM_APIKEY=${ND_LASTFM_APIKEY}"
+      - "ND_LASTFM_SECRET=${ND_LASTFM_SECRET}"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.music.entryPoints=webSecure"
