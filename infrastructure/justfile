@@ -1,0 +1,35 @@
+@maintain:
+    journalctl --vacuum-time=7d
+    sudo apt autoremove -y --purge
+    sudo apt clean
+    docker system prune -af
+    docker volume prune -f
+    clear
+    echo "🛠️ Maintained!"
+
+start:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    for stack in "docker/stacks"/*; do
+        infisical run -- docker compose -f "$stack/compose.yaml" up -d
+    done
+    sudo tailscale serve --bg --https=8090 http://localhost:8090 # Beszel
+    sudo tailscale serve --bg --https=8080 http://localhost:8080 # Dozzle
+    clear
+    echo "✅ Started!"
+
+stop:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    for stack in "docker/stacks"/*; do
+        docker compose -f "$stack/compose.yaml" down
+    done
+    sudo tailscale serve reset
+    clear
+    echo "❌ Stopped!"
+
+@restart:
+    just stop
+    just start
+    clear
+    echo "🔄 Restarted!"
