@@ -13,7 +13,7 @@ RUN bun run build
 
 FROM nginx:alpine AS final
 
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY ./nginx/conf.d/default.conf /etc/nginx/conf.d/default.conf
 COPY --from=base /losi-online/dist /usr/share/nginx/html
 
 EXPOSE 80
