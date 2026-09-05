@@ -20,4 +20,3 @@ ENV SERVER_LOG_FORMAT=pretty
 ENV SERVER_LOG_WITH_ANSI=true
 
 EXPOSE 8787
-ENTRYPOINT [ "static-web-server" ]
