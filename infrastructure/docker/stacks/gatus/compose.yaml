@@ -3,20 +3,11 @@ services:
     container_name: "gatus"
     image: "twinproduction/gatus:v5.36.0"
     restart: unless-stopped
-    networks:
-      - proxy
     volumes:
       - "data:/data"
       - "./config/config.yaml:/config/config.yaml"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.status.entryPoints=webSecure"
-      - "traefik.http.routers.status.rule=Host(`status.ocd.beauty`)"
-      - "traefik.http.services.status.loadBalancer.server.port=8080"
-
-networks:
-  proxy:
-    external: true
+    ports:
+      - "127.0.0.1:8081:8080"
 
 volumes:
   data:

@@ -15,6 +15,7 @@ start:
     done
     sudo tailscale serve --bg --https=8090 http://localhost:8090 # Beszel
     sudo tailscale serve --bg --https=8080 http://localhost:8080 # Dozzle
+    sudo tailscale serve --bg --https=8081 http://localhost:8081 # Gatus
     clear
     echo "✅ Started!"
 
