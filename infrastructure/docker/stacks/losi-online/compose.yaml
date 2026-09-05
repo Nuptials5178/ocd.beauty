@@ -10,7 +10,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.losi-online.entryPoints=webSecure"
       - "traefik.http.routers.losi-online.rule=Host(`ocd.beauty`)"
-      - "traefik.http.services.losi-online.loadBalancer.server.port=80"
+      - "traefik.http.services.losi-online.loadBalancer.server.port=8787"
 
 networks:
   proxy:
