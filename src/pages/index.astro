@@ -25,6 +25,10 @@ import Layout from "@layouts/main-layout.astro";
         <Image
           alt="illustration"
           class="w-full h-auto block select-none pointer-events-none"
+          decoding="async"
+          format="avif"
+          loading="eager"
+          quality={80}
           src={bannerImg}
         />
       </div>

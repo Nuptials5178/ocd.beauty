@@ -44,17 +44,11 @@
   "[vue]": {
     "editor.defaultFormatter": "biomejs.biome"
   },
-  "[yaml]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
-  },
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit",
     "source.organizeImports.biome": "explicit"
   },
   "[astro]": {
     "editor.defaultFormatter": "biomejs.biome"
-  },
-  "[dockercompose]": {
-    "editor.defaultFormatter": "redhat.vscode-yaml"
   }
 }

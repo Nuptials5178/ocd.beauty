@@ -11,10 +11,13 @@ COPY . .
 
 RUN bun run build
 
-FROM nginx:alpine AS final
+FROM joseluisq/static-web-server:2.44.0 AS final
 
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=base /losi-online/dist /usr/share/nginx/html
+COPY --from=base /losi-online/dist /public
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+ENV SERVER_LOG_LEVEL=info
+ENV SERVER_LOG_FORMAT=pretty
+ENV SERVER_LOG_WITH_ANSI=true
+
+EXPOSE 8787
+ENTRYPOINT [ "static-web-server" ]
